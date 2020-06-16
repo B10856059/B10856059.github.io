@@ -1,0 +1,29 @@
+html,body{height: 100%;width: 100%;}
+div { height: 95%;
+    width: 100%;
+    background-image: url('a.png');
+    background-repeat: no-repeat;
+background-position: center;
+background-size: contain;
+}
+#a{display: flex;
+    flex-direction: row;
+    justify-content: space-between;}
+nav{
+    height: 5%;
+    background-color: black;
+    text-align:center;
+    font-size:0;
+}
+nav a{
+    color:#fff;
+    text-decoration:none;
+    display: inline-block;
+    padding: 6px 20px;
+    font-size: 16px;
+    background-color: black;
+    transition: 0.5s;
+}
+nav a:hover{
+    background-color: gray;
+}

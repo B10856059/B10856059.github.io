@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    @media only screen and (min-width: 600px) {
+        .rwdTable {
+            display: table;
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 5px;
+        }
+        .rwdTr,
+        .rwdTitle_gorup {
+            display: table-row;
+        }
+        .rwdTh,
+        .rwdTd {
+            display: table-cell;
+            vertical-align: top;
+            text-align: center;
+            padding: 5px 10px;
+        }
+        .rwdTr:nth-of-type(odd),
+        .rwdTitle_gorup:nth-of-type(odd) {
+            background-color: #eaeaea;
+        }
+        .rwdTh {
+            background-color: #188EBE;
+            color: #ffffff;
+        }
+        .rwdTable {
+            border: 1px solid #188EBE;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: auto;
+            width: 120px;
+            height: 120px;
+        }
+    }
+    
+    @media only screen and (max-width: 768px) {
+        .rwdTable {
+            border-spacing: 0px;
+        }
+        .rwdTr:first-of-type {
+            display: none;
+        }
+        .rwdTd {
+            display: table;
+            padding: 0;
+        }
+        .rwdTd::before {
+            content: attr(data-th);
+            display: table-cell;
+            font-weight: bold;
+            color: #fff;
+            padding: 3px 10px;
+            white-space: nowrap;
+            text-align: left !important;
+            width: 60px;
+            background-color: #188EBE;
+            vertical-align: top;
+        }
+        .rwdTd span {
+            padding: 3px 10px;
+            display: inline-block;
+        }
+        .rwdTr:nth-of-type(odd),
+        .rwdTitle_gorup:nth-of-type(odd) {
+            background-color: #e8f6ff;
+        }
+    }
+    </style>
+</head>
+<body>
+<div class="rwdTable">
+    <div class="rwdTr">
+        <div class="rwdTh">日期</div>
+        <div class="rwdTh">類型</div>
+        <div class="rwdTh">客戶</div>
+        <div class="rwdTh">內容</div>
+</div>
+<div class="rwdTr">
+    <div class="rwdTd" data-th="日期"><span>2019/03/22</span></div>
+    <div class="rwdTd" data-th="類型"><span>服裝上市</span></div>
+    <div class="rwdTd" data-th="客戶"><span>王先生</span></div>
+    <div class="rwdTd" data-th="內容"><span>袖口採用包邊設計，能好防止毛邊脫線</span></div>
+</div>
+<div class="rwdTr">
+    <div class="rwdTd" data-th="日期"><span>2019/03/20</span></div>
+    <div class="rwdTd" data-th="類型"><span>食品上市</span></div>
+    <div class="rwdTd" data-th="客戶"><span>王先生</span></div>
+    <div class="rwdTd" data-th="內容"><span>最好的食品就是健康天然的蔬果</span></div>
+</div>
+</body>
+</html>
