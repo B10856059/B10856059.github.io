@@ -1,0 +1,244 @@
+$gray: #333333;
+$white: #ffffff;
+$base-transition: all .3s;
+$line-height: 4px;
+$line-radius: 5px;
+body {
+    background: $gray;
+}
+
+.container {
+    width: 60%;
+    margin: auto;
+    padding: 50px 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", Meiryo, メイリオ, Osaka, "MS PGothic", arial, helvetica, sans-serif;
+    section {
+        padding: 0 30px;
+        margin-bottom: 60px;
+    }
+}
+
+h1 {
+    text-align: center;
+    color: $white;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    &::after {
+        display: block;
+        content: "";
+        width: 30px;
+        margin: auto;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #666666;
+    }
+}
+
+
+/*-----  ベーススタイル -----*/
+
+.hamburger {
+    width: 50px;
+    margin: auto;
+    .menu_icon {
+        position: relative;
+        width: 50px;
+        height: 35px;
+        margin: 0 auto 10px;
+    }
+    .border {
+        position: absolute;
+        left: 0;
+        display: inline-block;
+        width: 100%;
+        height: $line-height;
+        border-radius: $line-radius;
+        transition: $base-transition;
+        background: $white;
+    }
+    .border1 {
+        top: 0;
+    }
+    .border2 {
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
+    .border3 {
+        bottom: 0px;
+    }
+    //MENUのテキストが入る場合のスタイル
+    .text {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        color: $white;
+        transition: $base-transition;
+        &::after {
+            display: block;
+            content: "MENU";
+        }
+    }
+    .active {
+        &+.text {
+            &::after {
+                content: "CLOSE";
+            }
+        }
+    }
+}
+
+
+/*-----  ベーススタイルここまで -----*/
+
+.type4 {
+    overflow: hidden;
+    .border {
+        background: transparent;
+        &::before {
+            position: absolute;
+            left: 0;
+            display: block;
+            content: "";
+            width: 100%;
+            height: $line-height;
+            border-radius: $line-radius;
+            background: $white;
+            transition: $base-transition;
+        }
+        &::after {
+            position: absolute;
+            left: -100px;
+            display: block;
+            content: "";
+            width: 100%;
+            height: $line-height;
+            border-radius: $line-radius;
+            background: $white;
+            transition: $base-transition;
+        }
+    }
+    .border1,
+    .border2,
+    .border3 {
+        &::before {
+            transition: all 0s linear;
+        }
+    }
+    &:hover {
+        .border {
+            &::before {
+                left: 100px;
+            }
+            &::after {
+                left: 0;
+            }
+        }
+        .border1 {
+            &::before {
+                transition: all .2s linear;
+            }
+            &::after {
+                transition: all .2s linear;
+            }
+        }
+        .border2 {
+            &::before {
+                transition: all .25s linear;
+            }
+            &::after {
+                transition: all .25s linear;
+            }
+        }
+        .border3 {
+            &::before {
+                transition: all .3s linear;
+            }
+            &::after {
+                transition: all .3s linear;
+            }
+        }
+    }
+    .border1 {
+        animation: type4_menu_bar01 0.5s;
+        //アニメーション終了時点のスタイルを適用
+        animation-fill-mode: forwards;
+    }
+    .border3 {
+        animation: type4_menu_bar03 0.5s;
+        //アニメーション終了時点のスタイルを適用
+        animation-fill-mode: forwards;
+    }
+    .active {
+        .border {
+            background: $white;
+            transition: none;
+            &::before {
+                transition: none;
+            }
+            &::after {
+                transition: none;
+            }
+        }
+        .border1 {
+            animation: type4_active_menu_bar01 0.5s forwards;
+        }
+        .border2 {
+            opacity: 0;
+        }
+        .border3 {
+            animation: type4_active_menu_bar03 0.5s forwards;
+        }
+        //メニュー閉じる際のアニメーション
+        @keyframes type4_menu_bar01 {
+            0% {
+                transform: translateY(16px) rotate(45deg);
+            }
+            50% {
+                transform: translateY(16px) rotate(0);
+            }
+            100% {
+                transform: translateY(0) rotate(0);
+            }
+        }
+        @keyframes type4_menu_bar03 {
+            0% {
+                transform: translateY(-16px) rotate(-45deg);
+            }
+            50% {
+                transform: translateY(-16px) rotate(0);
+            }
+            100% {
+                transform: translateY(0) rotate(0);
+            }
+        }
+        //メニュー開く際のアニメーション
+        @keyframes type4_active_menu_bar01 {
+            0% {
+                transform: translateY(0) rotate(0);
+            }
+            50% {
+                transform: translateY(16px) rotate(0);
+            }
+            100% {
+                transform: translateY(16px) rotate(45deg);
+            }
+        }
+        @keyframes type4_active_menu_bar03 {
+            0% {
+                transform: translateY(0) rotate(0);
+            }
+            50% {
+                transform: translateY(-15px) rotate(0);
+            }
+            100% {
+                transform: translateY(-15px) rotate(-45deg);
+            }
+        }
+    }
+}
