@@ -104,6 +104,11 @@ h4 {
 }
 
 @media(max-width: 700px) {
+    #champion {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 20px;
+    }
     #T1teammate {
         width: 500px;
         height: 400px;
